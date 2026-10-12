@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language Flashcards</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Language practice</p>
+        <h1>Flashcards</h1>
+      </div>
+      <label class="file-button">
+        Choose CSV…
+        <input id="csv-file" type="file" accept=".csv,text/csv">
+      </label>
+    </header>
+
+    <section class="settings" aria-label="Practice settings">
+      <label>
+        Direction
+        <select id="direction">
+          <option value="hu-foreign">Hungarian → Foreign</option>
+          <option value="foreign-hu">Foreign → Hungarian</option>
+        </select>
+      </label>
+      <label>
+        Questions
+        <input id="question-count" type="number" min="1" max="999" value="20">
+      </label>
+      <button id="start-button" class="primary" type="button">Start</button>
+    </section>
+
+    <p id="file-label" class="file-label">No CSV selected</p>
+
+    <section class="card" aria-live="polite">
+      <p id="prompt">Choose a CSV file to begin</p>
+    </section>
+
+    <form id="answer-form" class="answer-row">
+      <input id="answer" type="text" autocomplete="off" placeholder="Type the translation…" disabled>
+      <button id="check-button" class="primary" type="submit" disabled>Check</button>
+    </form>
+
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+    <section id="summary" class="summary" hidden aria-live="polite"></section>
+    <section class="stats" aria-labelledby="stats-heading">
+      <div class="stats-header">
+        <div>
+          <h2 id="stats-heading">Success rate over time</h2>
+          <p id="stats-caption">Complete a test to add a result.</p>
+        </div>
+        <div class="stats-actions">
+          <button id="open-results-button" class="secondary" type="button">Open results file</button>
+          <button id="save-results-button" class="secondary" type="button">Save results</button>
+        </div>
+      </div>
+      <div id="chart" class="chart" aria-label="Success rate chart"></div>
+    </section>
+    <p id="status" class="status">Load a vocabulary CSV to begin.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
